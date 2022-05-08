@@ -2,5 +2,6 @@ package com.android.androidprojectapplication
 
 data class ItemInList(
     val title: String,
-    var isChecked: Boolean = false
+    val imageSrc: Int = 0,
+    var isChecked: Boolean = false,
 )

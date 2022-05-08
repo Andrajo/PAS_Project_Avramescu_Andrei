@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        listAdapter = ItemsAdaptor(mutableListOf())
+        listAdapter = ItemsAdaptor(applicationContext, mutableListOf())
 
         itemsList.adapter = listAdapter
         itemsList.layoutManager = LinearLayoutManager(this)
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         addItem.setOnClickListener {
             val itemsName = newListItem.text.toString()
             if(itemsName.isNotEmpty()) {
-                val item = ItemInList(itemsName)
+                val item = ItemInList(itemsName, R.drawable.ic_baseline_image_24)
                 listAdapter.addItemInList(item)
                 newListItem.text.clear()
             }
