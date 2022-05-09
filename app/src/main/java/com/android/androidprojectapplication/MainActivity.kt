@@ -31,5 +31,14 @@ class MainActivity : AppCompatActivity() {
         deleteItem.setOnClickListener {
             listAdapter.deleteCheckedItems()
         }
+
+        shareButton.setOnClickListener {
+            var shareIntent = Intent().apply {
+                this.action = Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT, "We are sharing data!")
+                this.type = "text/plain"
+            }
+            startActivity(shareIntent)
+        }
     }
 }

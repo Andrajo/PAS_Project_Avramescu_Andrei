@@ -38,4 +38,13 @@
         android:text="Delete Item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/shareButton"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintBottom_toTopOf="@+id/deleteItem"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
