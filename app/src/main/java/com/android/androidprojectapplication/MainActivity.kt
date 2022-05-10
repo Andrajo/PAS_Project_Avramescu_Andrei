@@ -4,8 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,5 +44,31 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(shareIntent)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        val item = menu?.findItem(R.id.search_action)
+        val searchView = item?.actionView as SearchView
+        var searchText = String()
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (searchText.isNotEmpty()) {
+                    listAdapter.filterList(searchText)
+                }
+                else {
+                    listAdapter.recoverList()
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchText = newText!!.toLowerCase(Locale.getDefault())
+                return false
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
     }
 }

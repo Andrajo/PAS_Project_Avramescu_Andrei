@@ -26,6 +26,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.list_item.view.*
+import java.util.*
 
 
 class ItemsAdaptor(
@@ -49,6 +50,20 @@ class ItemsAdaptor(
     fun addItemInList(item: ItemInList) {
         itemsList.add(item)
         notifyItemInserted(itemsList.size - 1)
+    }
+
+    fun filterList(searchText: String) {
+        if(searchText.isNotEmpty()) {
+            itemsList.removeAll { item ->
+                !item.title.toLowerCase(Locale.getDefault()).contains(searchText)
+            }
+            notifyDataSetChanged()
+        }
+    }
+
+    fun recoverList(): Boolean {
+        //TODO: change this function to actually refresh the list
+        return true
     }
 
     fun deleteCheckedItems() {
