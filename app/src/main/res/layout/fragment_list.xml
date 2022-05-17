@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/addItem"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/searchAction" />
 
     <EditText
         android:id="@+id/newListItem"
@@ -46,5 +46,13 @@
         android:src="@drawable/ic_baseline_share_24"
         app:layout_constraintBottom_toTopOf="@+id/deleteItem"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <SearchView
+        android:queryHint="search"
+        android:id="@+id/searchAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

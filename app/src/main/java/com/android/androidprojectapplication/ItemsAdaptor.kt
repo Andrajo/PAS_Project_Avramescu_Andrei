@@ -30,7 +30,8 @@ import java.util.*
 
 
 class ItemsAdaptor(
-    private val itemsList: MutableList<ItemInList>
+    private var itemsList: MutableList<ItemInList>,
+    private var filteredList: MutableList<ItemInList>,
 ) : RecyclerView.Adapter<ItemsAdaptor.ListViewHolder>() {
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -49,25 +50,26 @@ class ItemsAdaptor(
 
     fun addItemInList(item: ItemInList) {
         itemsList.add(item)
+        filteredList.add(item)
         notifyItemInserted(itemsList.size - 1)
     }
 
     fun filterList(searchText: String) {
-        if(searchText.isNotEmpty()) {
-            itemsList.removeAll { item ->
-                !item.title.toLowerCase(Locale.getDefault()).contains(searchText)
-            }
-            notifyDataSetChanged()
-        }
+        var newList = filteredList.filter { item -> item.title.contains(searchText) }
+        itemsList = newList.toMutableList()
+        notifyDataSetChanged()
     }
 
-    fun recoverList(): Boolean {
-        //TODO: change this function to actually refresh the list
-        return true
+    fun recoverList() {
+        itemsList = filteredList
+        notifyDataSetChanged()
     }
 
     fun deleteCheckedItems() {
         itemsList.removeAll { item ->
+            item.isChecked
+        }
+        filteredList.removeAll { item ->
             item.isChecked
         }
         notifyDataSetChanged()
