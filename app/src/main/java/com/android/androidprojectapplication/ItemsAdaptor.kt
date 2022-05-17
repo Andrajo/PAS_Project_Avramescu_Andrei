@@ -26,7 +26,6 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.list_item.view.*
-import java.util.*
 
 
 class ItemsAdaptor(
