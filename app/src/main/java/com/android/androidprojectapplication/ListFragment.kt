@@ -12,8 +12,6 @@ import kotlinx.android.synthetic.main.fragment_list.view.*
 class ListFragment : Fragment() {
 
     lateinit var listAdapter : ItemsAdaptor
-    val CAMERA_REQUEST_CODE = 1
-    val GALLERY_REQUEST_CODE = 2
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,10 +19,7 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        //TODO: change the main fragment
-
         val view: View = inflater!!.inflate(R.layout.fragment_list, container, false)
-//        inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         view.itemsList.layoutManager = LinearLayoutManager(context)
 

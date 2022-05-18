@@ -5,9 +5,9 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
-        android:id="@+id/notifications"
-        android:title="Notifications"
-        android:icon="@drawable/ic_baseline_notifications_24"/>
+        android:id="@+id/animation"
+        android:title="Animation"
+        android:icon="@drawable/ic_baseline_animation_24"/>
     <item
         android:id="@+id/settings"
         android:title="Settings"

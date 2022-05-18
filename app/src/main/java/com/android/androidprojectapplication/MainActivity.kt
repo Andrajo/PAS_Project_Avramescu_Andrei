@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private val settingsFragment = SettingsFragment()
 
-    private val notificationFragment = NotificationFragment()
+    private val notificationFragment = AnimationFragment()
 
     private val listFragment = ListFragment()
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.home -> replaceFragment(listFragment)
                 R.id.settings -> replaceFragment(settingsFragment)
-                R.id.notifications -> replaceFragment(notificationFragment)
+                R.id.animation -> replaceFragment(notificationFragment)
             }
             true
         }

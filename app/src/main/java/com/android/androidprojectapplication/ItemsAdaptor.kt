@@ -105,7 +105,6 @@ class ItemsAdaptor(
 
     private fun popupMenus(holder: ListViewHolder, position: Int) {
         //TODO: make photo change after it was taken or picked
-        //TODO: implement Realm database
         val popupMenu = PopupMenu(context, holder.itemView.individualItemPhoto)
         popupMenu.inflate(R.menu.popup_menu)
         popupMenu.setOnMenuItemClickListener {
